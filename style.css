@@ -1,0 +1,251 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('/tech-background.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Global Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 3rem 0; /* Increased padding for more space */
+    text-align: center;
+    border-bottom: 2px solid #00BFFF; /* Subtle border at the bottom */
+}
+
+h1 {
+    font-size: 3rem; /* Larger font size for title */
+    color: #00BFFF;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Navigation */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect for navigation */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    list-style: none;
+}
+
+nav a {
+    color: #00BFFF;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Main Sections */
+section {
+    padding: 4rem 0; /* Increased padding to give sections more space */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Darkened background with transparency */
+    margin-bottom: 4rem; /* Bottom margin for spacing between sections */
+    border-radius: 10px; /* Rounded corners for a smooth feel */
+}
+
+/* About Section */
+#about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Skills Section */
+#skills ul,
+#hobbies ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+#skills li,
+#hobbies li {
+    background: #333;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 0.5rem;
+}
+
+#skills li:hover,
+#hobbies li:hover {
+    transform: scale(1.05);
+    background-color: #00BFFF;
+    color: white;
+}
+
+/* Social Links Section */
+#social-links ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-top: 2rem;
+}
+
+#social-links a {
+    color: #00BFFF;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+#social-links a:hover {
+    color: white;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+form input,
+form textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #222;
+    color: white;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border: 2px solid #00BFFF;
+}
+
+form button {
+    padding: 1rem;
+    background: #00BFFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #007BFF;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00BFFF;
+}
+
+footer ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+footer li {
+    margin: 0.5rem 0;
+}
+
+footer a {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00BFFF;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #007BFF;
+}
+
+/* Social Links Section */
+#social-links {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#social-links h2 {
+    font-size: 2rem;
+    color: #00BFFF;
+    margin-bottom: 2rem;
+}
+
+#social-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#social-links a {
+    display: inline-block;
+}
+
+#social-links img {
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    transition: transform 0.3s ease;
+}
+
+#social-links img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
