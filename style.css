@@ -206,7 +206,6 @@ h1 {
     width: 100%;
     max-width: 450px;
     border-radius: 20px;
-    animation: float 4s ease-in-out infinite;
 }
 
 /* Services Strip */
@@ -262,8 +261,7 @@ h1 {
     color: white;
     font-size: 20px;
     margin: 0 15px; /* Increased spacing around separators */
-}
-
+} 
 
 
 /* Section Headers */
@@ -291,7 +289,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
 }
 
 .skill-card {
@@ -394,6 +392,7 @@ h1 {
 /* About Section */
 .about {
     padding: 5rem 10%;
+    font-size: small;
 }
 
 .about-content {
@@ -404,7 +403,7 @@ h1 {
 }
 
 .about-text {
-    font-size: 1.1rem;
+    font-size: 1.09rem;
     line-height: 1.6;
 }
 
