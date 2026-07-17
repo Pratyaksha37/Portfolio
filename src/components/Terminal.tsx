@@ -16,28 +16,40 @@ interface LogEntry {
 function TypeWriter({ content, speed = 20, onDone }: { content: ReactNode; speed?: number; onDone?: () => void }) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
+  const startRef = useRef(0);
   const fullRef = useRef<HTMLDivElement>(null);
   const fullText = useRef("");
   const calledRef = useRef(false);
+  const speedRef = useRef(speed);
+  speedRef.current = speed;
 
   useEffect(() => {
     if (fullRef.current) {
       fullText.current = fullRef.current.textContent || "";
     }
+    startRef.current = Date.now();
   }, []);
 
   useEffect(() => {
     if (done) return;
     const full = fullText.current;
-    if (displayed.length < full.length) {
-      const t = setTimeout(() => {
-        setDisplayed(full.slice(0, displayed.length + 1));
-      }, speed);
-      return () => clearTimeout(t);
-    } else {
-      setDone(true);
+    const elapsed = Date.now() - startRef.current;
+    const charsToShow = Math.min(Math.floor(elapsed / speedRef.current), full.length);
+    if (charsToShow > displayed.length) {
+      setDisplayed(full.slice(0, charsToShow));
     }
-  }, [displayed, speed, done]);
+    if (charsToShow >= full.length) {
+      setDone(true);
+      return;
+    }
+    const t = setTimeout(() => {
+      const e = Date.now() - startRef.current;
+      const c = Math.min(Math.floor(e / speedRef.current), full.length);
+      setDisplayed(full.slice(0, c));
+      if (c >= full.length) setDone(true);
+    }, speedRef.current);
+    return () => clearTimeout(t);
+  }, [displayed, done]);
 
   useEffect(() => {
     if (done && onDone && !calledRef.current) {
@@ -281,7 +293,7 @@ export default function Terminal() {
                 </div>
               ) : (
                 <div className="whitespace-pre-wrap break-words">
-                  <TypeWriter content={entry.content} speed={25} onDone={handleAnimationDone} />
+                  <TypeWriter content={entry.content} speed={5} onDone={handleAnimationDone} />
                 </div>
               )}
             </motion.div>
