@@ -13,8 +13,6 @@ interface LogEntry {
   content: ReactNode;
 }
 
-let welcomeHasRun = false;
-
 function TypeWriter({ content, speed = 20, onDone }: { content: ReactNode; speed?: number; onDone?: () => void }) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
@@ -64,17 +62,26 @@ function TypeWriter({ content, speed = 20, onDone }: { content: ReactNode; speed
 }
 
 export default function Terminal() {
-  const [logs, setLogs] = useState<LogEntry[]>([]);
+  const welcomeHandler = getCommand("welcome");
+  const initialOutput = welcomeHandler ? welcomeHandler.handler() : null;
+  const initialLogs: LogEntry[] = welcomeHandler
+    ? [
+        { id: `log-1-init`, type: "command", content: "welcome" },
+        { id: `log-2-init`, type: "output", content: initialOutput! },
+      ]
+    : [];
+
+  const [logs, setLogs] = useState<LogEntry[]>(initialLogs);
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
   const [historyIdx, setHistoryIdx] = useState(-1);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const logEndRef = useRef<HTMLDivElement>(null);
   const suggestRef = useRef<HTMLDivElement>(null);
-  const logIdRef = useRef(0);
+  const logIdRef = useRef(2);
 
   const addLog = useCallback(
     (type: "command" | "output", content: ReactNode) => {
@@ -117,13 +124,6 @@ export default function Terminal() {
     },
     [addLog],
   );
-
-  useEffect(() => {
-    if (!welcomeHasRun) {
-      welcomeHasRun = true;
-      runCommand("welcome");
-    }
-  }, [runCommand]);
 
   useEffect(() => {
     const handler = (e: Event) => {

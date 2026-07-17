@@ -10,7 +10,6 @@ export const themes: Theme[] = [
   { name: "amber", className: "theme-amber", fg: "#ffb000", accent: "#ff8c00" },
   { name: "white", className: "theme-white", fg: "#ffffff", accent: "#cccccc" },
   { name: "blue", className: "theme-blue", fg: "#58a6ff", accent: "#79c0ff" },
-  { name: "green", className: "theme-green", fg: "#00cc55", accent: "#00aa44" },
 ];
 
 export const themeNames = themes.map((t) => t.name);

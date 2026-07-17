@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="h-10 md:h-12 shrink-0 flex items-center justify-between px-4 md:px-6 border-b border-[var(--border)] bg-[var(--bg)] z-20">
       <div className="flex items-center gap-3">
-        <span className="text-sm md:text-base font-semibold text-[var(--header-fg)]">
+        <span className="text-lg md:text-xl font-extrabold tracking-tight text-[var(--header-fg)]">
           Pratyaksha Shastri
         </span>
         <span className="hidden sm:inline text-[10px] uppercase tracking-widest text-[var(--dim)]">

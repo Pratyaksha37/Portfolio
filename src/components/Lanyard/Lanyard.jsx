@@ -166,7 +166,11 @@ function Band({
       drawFitted(frontTex.image, FRONT_UV_RECT);
       ctx.filter = "none";
     }
-    if (backImage && backTex.image) drawFitted(backTex.image, BACK_UV_RECT);
+    if (backImage && backTex.image) {
+      ctx.filter = "grayscale(100%)";
+      drawFitted(backTex.image, BACK_UV_RECT);
+      ctx.filter = "none";
+    }
 
     const composite = new THREE.CanvasTexture(canvas);
     composite.colorSpace = THREE.SRGBColorSpace;

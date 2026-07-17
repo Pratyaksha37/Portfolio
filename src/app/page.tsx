@@ -32,8 +32,8 @@ export default function Home() {
     <div className="h-screen w-screen flex flex-col bg-[var(--bg)] overflow-hidden">
       <div className="scanline" />
       <Header />
-      <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
-        <aside className="w-full md:w-[40%] flex flex-col relative border-r-0 md:border-r border-[var(--border)] h-[50vh] md:h-full">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0">
+        <aside className="hidden lg:flex lg:w-[40%] lg:flex-col relative lg:border-r border-[var(--border)] lg:h-full overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[var(--bg)] to-[#050505]" />
           <Particles />
           <div className="absolute inset-0 opacity-[0.03]"
@@ -50,10 +50,12 @@ export default function Home() {
               transparent={true}
               // @ts-expect-error Lanyard JS prop types
               frontImage="/images/photo.png"
+              // @ts-expect-error Lanyard JS prop types
+              backImage="/images/avatar.svg"
             />
           </div>
         </aside>
-        <main className="w-full md:w-[60%] flex flex-col min-h-0">
+        <main className="w-full lg:w-[60%] flex flex-col min-h-0">
           <Terminal />
         </main>
       </div>
